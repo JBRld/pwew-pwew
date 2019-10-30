@@ -30,7 +30,7 @@ function init()
 
     player2 = new Player("player2", 0xff0000, new THREE.Vector2(190, 120), 0);
     scene.add(player2.graphic);
-    player2.accelerate(moveDistance);
+    //player2.accelerate(moveDistance);
 
     light1 = new Light("sun", 0xffffff, "0,0,340");
     scene.add(light1);
