@@ -51,6 +51,13 @@ function bullet_collision()
             player1.bullets.splice(i, 1);
             i--;
         }
+        if (Math.abs(player1.bullets[i].position.x - player2.position.x) <= 1 ||
+            Math.abs(player1.bullets[i].position.y - player2.position.y) <= 1)
+        {
+            scene.remove(player1.bullets[i]);
+            player1.bullets.splice(i, 1);
+            scene.remove(player2.graphic);
+        }
     }
 
 }
@@ -61,6 +68,8 @@ function player_collision()
     var x = player1.graphic.position.x + WIDTH / 2;
     var y = player1.graphic.position.y + HEIGHT / 2;
 
+    if ( x < 0 )
+        player1.graphic.position.x -= x;
     if ( x > WIDTH )
         player1.graphic.position.x -= x - WIDTH;
     if ( y < 0 )
